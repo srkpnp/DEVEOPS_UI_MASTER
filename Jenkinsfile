@@ -17,7 +17,7 @@ pipeline {
             script{
                 def scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('DevOps'){
-                    echo "$(scannerHome)"
+                    echo "${scannerHome}"
                     //sh '$(scannerHome)/bin/sonar-scanner -Dproject.settings=./sonar-project.properties'
                 } 
             }
