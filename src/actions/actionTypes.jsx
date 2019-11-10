@@ -1,0 +1,11 @@
+export const SEARCH_SORTCODE = "SEARCH_SORTCODE";
+
+export const ADD_RESOURCE = "ADD_RESOURCE";
+
+export const ADD_EVENTS = "ADD_EVENTS";
+
+export const NO_COLLEAGUE = "NO_COLLEAGUE";
+
+export const SERVICE_FAILURE = "SERVICE_FAILURE";
+
+export const DELETE_APPOINTMENT = "DELETE_APPOINTMENT";

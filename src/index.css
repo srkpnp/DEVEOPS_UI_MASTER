@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.brandIcon {
+  background-image: url("./static/images/tcs50-white1.png");
+  background-repeat: no-repeat;
+  height: 45px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 10px;
+}
