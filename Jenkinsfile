@@ -57,6 +57,7 @@ pipeline {
     stage ('Deploy Container'){
       steps{
         sh "sed -i 's/VERSION/${BUILD_NUMBER}/g' k8s/deploy.yaml"
+        echo "${CREDENTIALS_ID}"
         step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'k8s/deploy.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
            
       }
