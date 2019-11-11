@@ -1,22 +1,21 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-name: appui
-labels:
-  app: appui
+  name: appui
+  namespace: default
 spec:
-strategy:
-  type: Recreate
-template:
-  metadata:
-    labels:
-      app: appui
-      tier: appui
-  spec:
-    containers:
-      - name: appui
-        image: manojkumark/devops_ui:VERSION
-        imagePullPolicy: Always
-        ports:
-          - containerPort: 8080
-            name: appui
+  selector:
+    matchLabels:
+      run: appui
+  template:
+    metadata:
+      labels:
+        run: appui
+    spec:
+      containers:
+        - image: manojkumark/devops_ui:VERSION
+          imagePullPolicy: IfNotPresent
+          name: appui
+          ports:
+            - containerPort: 8080
+              protocol: TCP
