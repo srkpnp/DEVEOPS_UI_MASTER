@@ -31,7 +31,7 @@ class CalendarPersonal extends Component {
     calendar.fullCalendar({
       schedulerLicenseKey: "GPL-My-Project-Is-Open-Source",
       defaultView: "agendaDay",
-      defaultDate: "2019-07-22",
+      defaultDate: "2019-11-14",
       editable: true,
       selectable: true,
       eventLimit: true,
