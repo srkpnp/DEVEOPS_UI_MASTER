@@ -9,7 +9,7 @@ pipeline {
     PROJECT_ID = 'devops-258421'
     CLUSTER_NAME = 'standard-cluster-1'
     LOCATION = 'europe-north1-a'
-    CREDENTIALS_ID = 'ManojGCP'
+    CREDENTIALS_ID = 'jenkins-gke'
     PATH = ''
   }
   stages {
@@ -18,7 +18,6 @@ pipeline {
             script{
                 def scannerHome = tool 'SonarScanner';
                 withSonarQubeEnv('DevOps'){
-                    echo "${scannerHome}"
                     sh "${scannerHome}/bin/sonar-scanner -Dproject.settings=./sonar-project.properties"
                 } 
             }
@@ -58,8 +57,6 @@ pipeline {
     stage ('Deploy Container'){
       steps{
         sh "sed -i 's/VERSION/${BUILD_NUMBER}/g' k8s/deploy.yaml"
-        echo "${CREDENTIALS_ID}"
-        echo "${registryCredential}"
         step([$class: 'KubernetesEngineBuilder', projectId: env.PROJECT_ID, clusterName: env.CLUSTER_NAME, location: env.LOCATION, manifestPattern: 'k8s/deploy.yaml', credentialsId: env.CREDENTIALS_ID, verifyDeployments: true])
            
       }
