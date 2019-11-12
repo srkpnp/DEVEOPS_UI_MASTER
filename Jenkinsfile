@@ -3,7 +3,7 @@ pipeline {
     label 'master'
   }
   environment {
-    registry = 'manojkumark/devops_ui'
+    registry = 'srkpnp/devops_ui'
     registryCredential = 'DockerCreds'
     dockerImage = ''
     PROJECT_ID = 'devops-258421'
